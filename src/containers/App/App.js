@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
+import { Container } from 'flux/utils';
+
+import SnakeStore from '../data/SnakeStore';
 import logo from '../../logo.svg';
 import './App.css';
 
 class App extends Component {
+  static getStores = () => [SnakeStore];
+
+  static calculateState = () => ({
+    map: SnakeStore.getState(),
+  });
+
   render() {
     return (
       <div className="App">
@@ -25,4 +34,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Container.create(App);
