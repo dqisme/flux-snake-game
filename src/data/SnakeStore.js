@@ -7,7 +7,9 @@ class SnakeStore extends ReduceStore {
     super(Dispatcher);
   }
 
-  getInitialState = () => [];
+  getInitialState() {
+    return [];
+  }
 
 
   reduce(state) {

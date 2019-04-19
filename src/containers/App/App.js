@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { Container } from 'flux/utils';
 
-import SnakeStore from '../data/SnakeStore';
+import SnakeStore from '../../data/SnakeStore';
 import logo from '../../logo.svg';
 import './App.css';
+import FluxContainerConvert from '../../utils/FluxContainerConvert';
 
 class App extends Component {
-  static getStores = () => [SnakeStore];
+  static getStores() { return [SnakeStore]; }
 
-  static calculateState = () => ({
-    map: SnakeStore.getState(),
-  });
+  static calculateState() {
+    return {
+      map: SnakeStore.getState(),
+    };
+  }
 
   render() {
     return (
@@ -34,4 +37,4 @@ class App extends Component {
   }
 }
 
-export default Container.create(App);
+export default Container.create(FluxContainerConvert.convert(App));
